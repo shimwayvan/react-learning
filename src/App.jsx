@@ -4,10 +4,13 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 
-function App({count}) {
+function App() {
+  const [likes, setLikes] = useState(0)
+  
+  
   return (
     <div className="App">
-      {count > 0 && <p> You have {count} new m</p>}
+      <button onClick={() => setLikes(likes + 1)}> ❤️ {likes} Likes</button>
     </div>    
   )
 }
@@ -15,13 +18,24 @@ function App({count}) {
 export default App
 
 
-function App({count}) {
-  return (
-    <div className="App">
-      {count > 0 && <p> You have {count} new m</p>}
-    </div>    
-  )
-}
+// function App() { This component uses the useState hook to manage a likes state variable. It renders a button that increments the likes count when clicked. The component is exported as the default export of the module.
+//   const [likes, setLikes] = useState(0)
+  
+  
+//   return (
+//     <div className="App">
+//       <button onClick={() => setLikes(likes + 1)}> ❤️ {likes} Likes</button>
+//     </div>    
+//   )
+// }
+
+// function App({count}) {  This compnent counts the number of new messages and conditionally renders a message if the count is greater than zero. The component is exported as the default export of the module.
+//   return (
+//     <div className="App">
+//       {count > 0 && <p> You have {count} new messages</p>}
+//     </div>    
+//   )
+// }
 
 
 
