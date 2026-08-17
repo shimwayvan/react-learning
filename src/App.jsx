@@ -5,12 +5,16 @@ import heroImg from './assets/hero.png'
 import './App.css'
 
 function App() {
-  const [likes, setLikes] = useState(0)
+  const [name, setName] = useState('')
   
+  function handleChange(e){
+    setName(e.target.value)
+  }
   
   return (
     <div className="App">
-      <button onClick={() => setLikes(likes + 1)}> ❤️ {likes} Likes</button>
+      <input type="text" placeholder='Enter your name' onChange={handleChange} value ={name} />
+      <p>Hello {name}</p>
     </div>    
   )
 }
