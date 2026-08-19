@@ -4,7 +4,7 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 
-function App() {
+function App() { okay
   const [name, setName] = useState('')
   
   function handleChange(e){
