@@ -4,23 +4,63 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 
-function App() { okay
-  const [name, setName] = useState('')
+function App() { 
+  const [num, setNum] = useState(0)
   
-  function handleChange(e){
-    setName(e.target.value)
+  function add(){
+    setNum(num + 1)
+  }
+
+  function subtract(){
+    setNum(num - 1)
   }
   
   return (
     <div className="App">
-      <input type="text" placeholder='Enter your name' onChange={handleChange} value ={name} />
-      <p>Hello {name}</p>
+      <button onClick={add}>+</button>
+      <span>{num}</span>
+      <button onClick={subtract}>-</button>
     </div>    
   )
 }
 
 export default App
 
+
+// function App() { 
+//   const [num, setNum] = useState(0)
+  
+//   function add(){
+//     setNum(num + 1)
+//   }
+
+//   function subtract(){
+//     setNum(num - 1)
+//   }
+  
+//   return (
+//     <div className="App">
+//       <button onClick={add}>+</button>
+//       <span>{num}</span>
+//       <button onClick={subtract}>-</button>
+//     </div>    
+//   )
+// }
+
+// function App() { okay
+//   const [name, setName] = useState('')
+  
+//   function handleChange(e){
+//     setName(e.target.value)
+//   }
+  
+//   return (
+//     <div className="App">
+//       <input type="text" placeholder='Enter your name' onChange={handleChange} value ={name} />
+//       <p>Hello {name}</p>
+//     </div>    
+//   )
+// }
 
 // function App() { This component uses the useState hook to manage a likes state variable. It renders a button that increments the likes count when clicked. The component is exported as the default export of the module.
 //   const [likes, setLikes] = useState(0)
