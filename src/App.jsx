@@ -5,6 +5,9 @@ import heroImg from './assets/hero.png'
 import './App.css'
 
 function App() { 
+  let list = [
+    {'': 0}
+  ]
   const [num, setNum] = useState(0)
   
   function add(){
