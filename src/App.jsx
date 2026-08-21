@@ -5,32 +5,88 @@ import heroImg from './assets/hero.png'
 import './App.css'
 
 function App() { 
-  let list = [
-    {'': 0}
-  ]
-  const [num, setNum] = useState(0)
+  const [todo, setTodo] = useState([])
+  const [input, setInput] = useState('')
   
-  function add(){
-    setNum(num + 1)
+  function addTodo(){
+    
+    setTodo([...todo, {id: Date.now(), text: input, done: false}])
+    setInput('')
   }
 
-  function subtract(){
-    setNum(num - 1)
+  function handleChange(e){
+    setInput(e.target.value)
   }
   
   return (
     <div className="App">
-      <button onClick={add}>+</button>
-      <span>{num}</span>
-      <button onClick={subtract}>-</button>
+      <input type="text" placeholder='Enter your todo' onChange={handleChange} value ={input} />
+      <button onClick={addTodo}>Add Todo</button>
+      <ul>
+        {todo.map((item) => (
+          <div>
+            <li style={{ textDecoration: item.done ? 'line-through' : 'none', cursor: 'pointer' }} key={item.id} onClick={() => {
+            setTodo(todo.map((t) => t.id === item.id ? { ...t, done: !t.done } : t))
+          }}>
+            {item.text}
+            
+          </li>
+          <button onClick={() => {
+              setTodo(todo.filter((t) => t.id !== item.id))
+            }}>
+              Delete
+            </button>
+          </div>
+          
+        ))}
+      </ul>
     </div>    
   )
 }
 
 export default App
 
-
 // function App() { 
+//   const [todo, setTodo] = useState([])
+//   const [input, setInput] = useState('')
+  
+//   function addTodo(){
+    
+//     setTodo([...todo, {id: Date.now(), text: input, done: false}])
+//     setInput('')
+//   }
+
+//   function handleChange(e){
+//     setInput(e.target.value)
+//   }
+  
+//   return (
+//     <div className="App">
+//       <input type="text" placeholder='Enter your todo' onChange={handleChange} value ={input} />
+//       <button onClick={addTodo}>Add Todo</button>
+//       <ul>
+//         {todo.map((item) => (
+//           <div>
+//             <li style={{ textDecoration: item.done ? 'line-through' : 'none', cursor: 'pointer' }} key={item.id} onClick={() => {
+//             setTodo(todo.map((t) => t.id === item.id ? { ...t, done: !t.done } : t))
+//           }}>
+//             {item.text}
+            
+//           </li>
+//           <button onClick={() => {
+//               setTodo(todo.filter((t) => t.id !== item.id))
+//             }}>
+//               Delete
+//             </button>
+//           </div>
+          
+//         ))}
+//       </ul>
+//     </div>    
+//   )
+// }
+
+// function App() { Counter component that uses the useState hook to manage a num state variable. It renders two buttons that increment and decrement the num value when clicked. The component is exported as the default export of the module.
 //   const [num, setNum] = useState(0)
   
 //   function add(){
